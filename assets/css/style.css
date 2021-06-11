@@ -1,0 +1,65 @@
+#hero{
+    background-image: linear-gradient(to bottom right,#1E90FF, #191970);
+    text-align: center;
+    color:white;
+    height:50px;
+}
+
+#past-search{
+    margin-top:5px;
+    margin-bottom:5px;
+    border-bottom:solid;
+    width: fit-content;
+    
+}
+#past-search h2{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+button{
+    margin-top:5px;
+    margin-bottom:5px;
+    width:169.33px;
+    background-color: gray;
+    width:100%;
+    border-radius:5px;
+    color:white;
+}
+
+#submit{
+    
+    margin-bottom:5px;
+    background-color: #1E90FF;
+    
+}
+
+.button-container{
+    border-bottom:black solid;
+}
+
+.daily-forecast{
+    background-color: navy;
+    color:white;
+}
+.daily-forecast ul li{
+    background-color: navy;
+    color:white;
+}
+
+textarea{
+    margin-bottom:5px;
+    border-bottom:solid;
+    border-radius:40px;
+    resize:none;
+
+}
+
+#current-weather{
+    border-color:black;
+    margin-top:20px;
+}
+
+#future-weather{
+    border:none;
+}
