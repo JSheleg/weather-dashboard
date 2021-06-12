@@ -245,3 +245,5 @@ var currentWeather = function(){
     //save city(Key) and api search url(value) in local storage
     //upon refresh, function to return local storage Key/Value pairs
 
+    //Bonus- Create button to go back to current city//
+
