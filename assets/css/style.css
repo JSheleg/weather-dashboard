@@ -63,3 +63,19 @@ textarea{
 #future-weather{
     border:none;
 }
+
+
+.goodUv{
+background-color: green;
+color: white;
+} 
+  
+.moderateUv {
+background-color: orange;
+color: white;
+}
+  
+.dangerousUv {
+background-color: red;
+color: white;
+}

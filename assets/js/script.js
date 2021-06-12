@@ -4,6 +4,7 @@ var currentTemp = document.querySelector("#current-temp");
 var currentWindSpeed = document.querySelector("#current-wind-speed");
 var currentHumidity = document.querySelector("#current-humidity");
 var currentUvIndex = document.querySelector("#current-uv-index");
+var pastSearch = document.querySelector('.past-search');
 var citySpan = document.getElementById('city');
 var dateSpan = document.getElementById('date');
 var currDate = new Date();
@@ -78,6 +79,17 @@ var getCurrentLocation = function(){
                 //local uv index
                 var uvindex = response.current.uvi
                 currentUvIndex.innerText = "UV Index: " + uvindex;
+                    if(uvindex<=2){
+                        currentUvIndex.setAttribute("class" , "goodUv");
+
+                    }
+                    else if(uvindex > 2 && uvindex < 8){
+                        currentUvIndex.setAttribute("class" , "moderateUv");
+                    }
+                    else{
+                        
+                        currentUvIndex.setAttribute("class" , "dangerousUv");
+                    }
                 
                 //set fetch response to object
                 responseObject = response;
@@ -134,6 +146,9 @@ var getCurrentLocation = function(){
 citySearch.addEventListener("click",function(){
     alert("button clicked");
     city = cityInput.value;
+    var cityBtn = document.createElement("button");
+    cityBtn.innerText = city;
+    pastSearch.append(cityBtn);
     console.log(city);
     //reassign city to requested city
     citySpan.innerText = city;
@@ -231,17 +246,37 @@ var currentWeather = function(){
         //add current uv index to current day forecast
         var uvindex = response.current.uvi
         currentUvIndex.innerText ="UV Index: " + uvindex;
+
+        if(uvindex<=2){
+            
+            // currentUvIndex.removeAttribute("moderateUv");
+            // currentUvIndex.removeAttribute("dangerousUv");
+            currentUvIndex.setAttribute("class" , "goodUv");
+
+        }
+        else if(uvindex > 2 && uvindex < 8){
+            
+            // currentUvIndex.removeAttribute("goodUv");
+            // currentUvIndex.removeAttribute("dangerousUv");
+            currentUvIndex.setAttribute("class" , "moderateUv");
+        }
+        else{
+            
+            // currentUvIndex.removeAttribute("moderateUv");
+            // currentUvIndex.removeAttribute("goodUv");
+            currentUvIndex.setAttribute("class" , "dangerousUv");
+        }
         var img = document.createElement("img");
         img.setAttribute("src",`http://openweathermap.org/img/w/${response.current.weather[0].icon}.png`);
         citySpan.append(img)
         fiveDayforecast();
     })
-    //fiveDayforecast();
+    
 }
 
 /////////LEFT TO DO////////
 
-    //create a button below searched city
+    
     //save city(Key) and api search url(value) in local storage
     //upon refresh, function to return local storage Key/Value pairs
 
