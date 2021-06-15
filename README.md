@@ -18,4 +18,17 @@
     * Provide home button to return to current location based weather conditions
 
 ## Images: 
-    ![newSearch with zero history]()
+    * ![newSearchwithzerohistory](https://github.com/JSheleg/weather-dashboard/blob/main/assets/img/start_zeroStorage.JPG)
+
+    * ![NewSearch](https://github.com/JSheleg/weather-dashboard/blob/main/assets/img/newSearch.JPG)
+
+    * ![UsingPreviousSearchBtn](https://github.com/JSheleg/weather-dashboard/blob/main/assets/img/3seaches_historybtn.JPG)
+
+    * ![3Searches](https://github.com/JSheleg/weather-dashboard/blob/main/assets/img/3searches.JPG)
+
+## Links: 
+
+    * Github Repository: https://github.com/JSheleg/weather-dashboard
+    * Check the weather at: https://jsheleg.github.io/weather-dashboard/
+    
+
