@@ -18,4 +18,4 @@
     * Provide home button to return to current location based weather conditions
 
 ## Images: 
-    ![]
+    ![newSearch with zero history]()
