@@ -41,6 +41,7 @@ button{
 .daily-forecast{
     background-color: navy;
     color:white;
+    
 }
 .daily-forecast ul li{
     background-color: navy;
@@ -78,4 +79,12 @@ color: white;
 .dangerousUv {
 background-color: red;
 color: white;
+}
+
+div .col{
+    padding: 0.5px;
+}
+
+.list-group-item{
+    font-size:80%;
 }
