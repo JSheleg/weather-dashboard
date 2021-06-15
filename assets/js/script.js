@@ -64,8 +64,8 @@ var getCurrentLocation = function(){
 
                 //current weather image
                 var img = document.createElement("img");
-                console.log(`http://openweathermap.org/img/w/${response.current.weather[0].icon}.png`)
-                img.setAttribute("src",`http://openweathermap.org/img/w/${response.current.weather[0].icon}.png`)
+                console.log(`https://openweathermap.org/img/w/${response.current.weather[0].icon}.png`)
+                img.setAttribute("src",`https://openweathermap.org/img/w/${response.current.weather[0].icon}.png`)
                 citySpan.append(img)
 
                 // local temp
@@ -119,8 +119,8 @@ var getCurrentLocation = function(){
                     //set images of weather to dates
                     var img = document.createElement("img");
                     
-                    console.log(`http://openweathermap.org/img/w/${response.daily[i].weather[0].icon}.png`)
-                    img.setAttribute("src",`http://openweathermap.org/img/w/${response.daily[i].weather[0].icon}.png`)
+                    console.log(`https://openweathermap.org/img/w/${response.daily[i].weather[0].icon}.png`)
+                    img.setAttribute("src",`https://openweathermap.org/img/w/${response.daily[i].weather[0].icon}.png`)
                     fiveDayDate.append(img)
             
             
@@ -191,7 +191,7 @@ citySearch.addEventListener("click",function(){
         //city url takes the city name and finds the latitude and longitude of the city.
         //http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
         //console.log("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=732c347ea0e41d029999d7150a2a657d&units=imperial")
-        cityURL ="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=732c347ea0e41d029999d7150a2a657d&units=imperial"
+        cityURL ="https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=732c347ea0e41d029999d7150a2a657d&units=imperial"
         
         //stores search in localStorage 
         storageObj.push({cityInfo:city,cityURL});
@@ -268,7 +268,7 @@ var fiveDayforecast =function(){
         var img = document.createElement("img");
         
         //console.log(`http://openweathermap.org/img/w/${responseObject.daily[i].weather[0].icon}.png`)
-        img.setAttribute("src",`http://openweathermap.org/img/w/${weeklyWeather[i].weather[0].icon}.png`)
+        img.setAttribute("src",`https://openweathermap.org/img/w/${weeklyWeather[i].weather[0].icon}.png`)
         fiveDayDate.append(img)
 
 
@@ -334,7 +334,7 @@ var currentWeather = function(){
 
         //append weather image to citySpan
         var img = document.createElement("img");
-        img.setAttribute("src",`http://openweathermap.org/img/w/${response.current.weather[0].icon}.png`);
+        img.setAttribute("src",`https://openweathermap.org/img/w/${response.current.weather[0].icon}.png`);
         citySpan.append(img)
         fiveDayforecast();
     })
