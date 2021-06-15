@@ -17,13 +17,16 @@ var longitude;
 var latitude;
 var latCurrentLocal;
 var longCurrentLocal;
+var count = -1;
+var storageObj =[];
 var responseObject;
 var currentCityUrl = "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" + latCurrentLocal + "&longitude="+ longCurrentLocal +"&localityLanguage=en"
 //var url="https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long +"&appid=732c347ea0e41d029999d7150a2a657d&units=imperial"
 
 //onload, page will fill page with location specific weather current weather
 window.onload = function() {
-    getCurrentLocation();  
+    getCurrentLocation(); 
+    historyButtons();
 };
 
 //gets current location based off of geolocation
@@ -142,19 +145,51 @@ var getCurrentLocation = function(){
     })
 };
 
+var historyButtons = function(){
+    storageObj = JSON.parse(localStorage.getItem('storageObj'));
+    console.log(storageObj.length);
+    
+    for(var i =0; i < storageObj.length; i++){
+        var cityBtn = document.createElement("button"); 
+        cityBtn.setAttribute("id", i);
+        // cityBtn.setAttribute("class", "cityBtnChoice")
+        cityBtn.innerText = storageObj[i].cityInfo;
+        cityBtn.value = storageObj[i].cityURL;
+        pastSearch.append(cityBtn);
+
+    }  
+}
+
+
 //city input and value from submit button
 citySearch.addEventListener("click",function(){
     alert("button clicked");
+    //count++;
+
+ 
+    
     city = cityInput.value;
     var cityBtn = document.createElement("button");
+    //cityBtn.setAttribute("id", "Btn"+count);
     cityBtn.innerText = city;
     pastSearch.append(cityBtn);
     console.log(city);
+
     //reassign city to requested city
     citySpan.innerText = city;
+
+
     //http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
     console.log("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=732c347ea0e41d029999d7150a2a657d&units=imperial")
     cityURL ="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=732c347ea0e41d029999d7150a2a657d&units=imperial"
+    
+    storageObj.push({cityInfo:city,cityURL});
+    console.log(storageObj);
+    //localStorage.setItem('searches', storageObj);
+    localStorage.setItem('storageObj',JSON.stringify(storageObj));
+    
+
+
     fetch(cityURL)
     .then(function(response){
         return response.json()
@@ -171,9 +206,30 @@ citySearch.addEventListener("click",function(){
         currentWeather();
     })
     
-
-    
 });
+
+
+$(".past-search").on("click", function(e){
+    alert("button clicked")
+    var selected =e.target.id;
+    cityURL = storageObj[selected].cityURL;
+    console.log(cityURL);
+    fetch(cityURL)
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(response){
+        console.log(response);
+        latitude = response[0].lat;
+        longitude= response[0].lon;
+        city =response[0].name;
+        citySpan.innerText = city;
+        console.log("latitude: " + latitude)
+        console.log("longitude: " + longitude);
+        currentWeather();
+    })
+    
+})
 
 var fiveDayforecast =function(){
     console.log("lat " + latitude);
@@ -233,6 +289,8 @@ var currentWeather = function(){
         return response.json();
     })
     .then(function(response){
+
+        console.log(response);
         weeklyWeather = response.daily;
         //add current temp to current day forecast
         var temp = response.current.temp;
@@ -273,6 +331,8 @@ var currentWeather = function(){
     })
     
 }
+
+
 
 /////////LEFT TO DO////////
 
