@@ -1,3 +1,5 @@
+//declare variables
+
 var citySearch = document.querySelector("#submit");
 var cityInput = document.querySelector("#floatingTextarea")
 var currentTemp = document.querySelector("#current-temp");
@@ -17,7 +19,6 @@ var longitude;
 var latitude;
 var latCurrentLocal;
 var longCurrentLocal;
-var count = -1;
 var storageObj =[];
 var responseObject;
 var currentCityUrl = "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" + latCurrentLocal + "&longitude="+ longCurrentLocal +"&localityLanguage=en"
@@ -149,7 +150,7 @@ var getCurrentLocation = function(){
 var historyButtons = function(){
     //check for storage
     if("storageObj" in localStorage){
-        console.log("you entered if")
+        
         storageObj = JSON.parse(localStorage.getItem('storageObj'));
     
         for(var i =0; i < storageObj.length; i++){
@@ -163,8 +164,7 @@ var historyButtons = function(){
         }  
     }
     else{
-        console.log("you entered else");
-        console.log(storageObj.length);
+       
         return;
     }
 }

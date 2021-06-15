@@ -5,6 +5,8 @@
     height:50px;
 }
 
+/* Column -3 styling */
+
 #past-search{
     margin-top:5px;
     margin-bottom:5px;
@@ -12,6 +14,7 @@
     width: fit-content;
     
 }
+
 #past-search h2{
     margin-top:5px;
     margin-bottom:5px;
@@ -28,15 +31,25 @@ button{
 }
 
 #submit{
-    
     margin-bottom:5px;
     background-color: #1E90FF;
-    
 }
 
 .button-container{
     border-bottom:black solid;
 }
+
+textarea{
+    margin-bottom:5px;
+    border-bottom:solid;
+    border-radius:40px;
+    resize:none;
+}
+/* Column-3 styling ends */
+
+/* Column-9 styling begins */
+
+/* Five day forecast styling */
 
 .daily-forecast{
     background-color: navy;
@@ -48,23 +61,33 @@ button{
     color:white;
 }
 
-textarea{
-    margin-bottom:5px;
-    border-bottom:solid;
-    border-radius:40px;
-    resize:none;
-
+#future-weather{
+    border:none;
 }
+
+div .col{
+    padding: 0.5px;
+}
+
+.list-group-item{
+    font-size:80%;
+}
+
+/* five day forecast styling ends */
+
 
 #current-weather{
     border-color:black;
     margin-top:20px;
 }
 
-#future-weather{
-    border:none;
-}
 
+
+
+
+
+
+/* uv color classes begin */
 
 .goodUv{
 background-color: green;
@@ -81,10 +104,4 @@ background-color: red;
 color: white;
 }
 
-div .col{
-    padding: 0.5px;
-}
-
-.list-group-item{
-    font-size:80%;
-}
+/* uv color classes end */
