@@ -11,6 +11,8 @@
     * JQuery
     * Local Storage
     * Moment.js
+    * OpenWeather Api
+    * Big Data Cloud Reverse Geocoding to City API
 
 ## Future updates:
     * Make seach queries more specific with added parameters such as country and state
